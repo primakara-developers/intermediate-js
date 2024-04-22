@@ -10,3 +10,10 @@ Branch: `meet-1`
 - Git dasar: Penggunaan `.gitignore` dan GitHub Desktop.
 - Pengenalan REST API dan Insomnia: Penggunaan dasar Insomnia.
 - Pengenalan pekerjaan di bidang teknologi.
+
+### Meet 2: Studi Kasus: Express, Rest API, CRUD tanpa database
+Branch: `meet-2`
+- Setup Awal: Menginstal Express.js, Menjalankan aplikasi Express.js pertama
+- Library-App: Membangun aplikasi sederhana untuk mengelola buku, Mendefinisikan model data, Menangani permintaan HTTP (GET, POST, PUT, DELETE), Menerapkan CRUD (Create, Read, Update, Delete) tanpa database
+- Express Intro: Konsep dasar Express.js, Menangani rute dan permintaan, Middleware dan error handling
+- REST API & CRUD no DB (http method) : Memahami prinsip-prinsip REST API, Menerapkan CRUD tanpa database menggunakan metode HTTP
