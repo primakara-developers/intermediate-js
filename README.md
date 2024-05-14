@@ -18,7 +18,7 @@ Branch: `meet-2`
 - **Express Intro** : Konsep dasar Express.js, Menangani rute dan permintaan, Middleware dan error handling
 - **REST API & CRUD no DB (http method)** : Memahami prinsip-prinsip REST API, Menerapkan CRUD tanpa database menggunakan metode HTTP
 
-## Meet 3: Basis Data, Database, ORM, Rest API + ORM
+### Meet 3: Basis Data, Database, ORM, Rest API + ORM
 Branch: `meet-3`
 - **Pengenalan Database SQL dengan Excel** : Memahami konsep dasar database SQL melalui aplikasi seperti Excel. Ini membantu dalam memahami struktur tabel dan relasi antar data sebelum beralih ke sistem manajemen database yang sesungguhnya.
 - **Mengenal Tipe Data dalam Database** : Mempelajari berbagai tipe data yang digunakan dalam database, seperti INTEGER, VARCHAR, BOOLEAN, dan lainnya, yang penting untuk menyimpan data dengan tepat.
@@ -27,5 +27,14 @@ Branch: `meet-3`
 - **Pengenalan Prisma** : Prisma adalah sebuah Object-Relational Mapping (ORM) tool yang memudahkan interaksi dengan database melalui kode yang lebih dekat dengan bahasa pemrograman daripada perintah SQL mentah.
 - **Implementasi Database dalam CRUD Terakhir** : Mengintegrasi pengetahuan database yang telah dikumpulkan ke dalam operasi CRUD yang sebelumnya hanya dilakukan tanpa penyimpanan data yang persisten.
 - **Pengantar HTTP Response** : Memahami berbagai jenis respons HTTP, seperti 200 OK untuk sukses, 404 Not Found untuk data yang tidak ditemukan, dan 500 Internal Server Error untuk kesalahan server.
+
+### Meet 4: Validation, env + Auth + Jwt
+Branch: `meet-4
+- **Sprate implement basic MVC file structure** : memahami konsep MVC dimulai dari memisahkan komponen aplikasi menjadi model, view, dan controller untuk mengikuti pola desain MVC (Model-View-Controller).
+- **Add user table** : Menambahkan tabel user dalam database untuk mengelola informasi user, yang berisi property email, dan password
+- **JSON Web Tokens (JWT) dan Hash** : Memahami konsep Enkripsi dan Hashing
+- **Login Register** : Implementasi fitur Login dan Register sederhana menggunakan JWT
+- **.env** : Memahami konsep file **`.env`** untuk mengatur variabel seperti kunci rahasia, alamat database, dan konfigurasi lainnya.
+- **Data Validation** : Memahami memvalidasi data yang diterima dari pengguna sebelum memprosesnya.`
 
 
