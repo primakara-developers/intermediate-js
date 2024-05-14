@@ -29,7 +29,7 @@ Branch: `meet-3`
 - **Pengantar HTTP Response** : Memahami berbagai jenis respons HTTP, seperti 200 OK untuk sukses, 404 Not Found untuk data yang tidak ditemukan, dan 500 Internal Server Error untuk kesalahan server.
 
 ### Meet 4: Validation, env + Auth + Jwt
-Branch: `meet-4
+Branch: `meet-4`
 - **Sprate implement basic MVC file structure** : memahami konsep MVC dimulai dari memisahkan komponen aplikasi menjadi model, view, dan controller untuk mengikuti pola desain MVC (Model-View-Controller).
 - **Add user table** : Menambahkan tabel user dalam database untuk mengelola informasi user, yang berisi property email, dan password
 - **JSON Web Tokens (JWT) dan Hash** : Memahami konsep Enkripsi dan Hashing
