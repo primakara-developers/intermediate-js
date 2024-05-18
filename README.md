@@ -38,3 +38,10 @@ Branch: `meet-4`
 - **Data Validation** : Memahami memvalidasi data yang diterima dari pengguna sebelum memprosesnya.`
 
 
+### Meet 4.5: One to Many, Middleware, Debugging 
+Branch: `meet-4.5`
+- **Debugging 5W + 1H** : Memahami dan menerapkan proses debugging serta mencari jawaban atas error yang di dapat dan belajar membaca error di terminal
+- **Add Update Book** : Menambahkan Fitur Update buku berdasarkan id buku yang ingin di Update
+- **Add relation between user with Book (one to many)** : Memahami konsep data relation dalam database sql dan implementasi one to many untuk table user dengan book diamana satu user dapat memiliki banyak buku.
+- **Auth with http req header with bearer token JWT (middleware)** : Membangun fitur authentication dengan token login user dengan JWT dan mengimplementasikan mekanisme authentication dengan middleware
+- **New App Flow** : Memahami flow dari app yang kita buat, bagaimana alur dari route, hingga sampai di function yang di eksekusi
