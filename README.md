@@ -1,27 +1,60 @@
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+
+- [Library APP](#library-app)
+   * [Materi](#materi)
+      + [**Struktur Data**](#struktur-data)
+      + [**One to One ( user table to profile table )**](#one-to-one-user-table-to-profile-table-)
+      + [**Many to Many (user table, like table, book table)**](#many-to-many-user-table-like-table-book-table)
+   * [Endpoint API](#endpoint-api)
+   * [Penjelasan Kode](#penjelasan-kode)
+- [README.md untuk API Manajemen Buku](#readmemd-untuk-api-manajemen-buku)
+      + [1. Mendapatkan Semua Buku `getAllBooks`](#1-mendapatkan-semua-buku-getallbooks)
+      + [2. Menambahkan Buku Baru](#2-menambahkan-buku-baru)
+      + [3. Mendapatkan Buku Berdasarkan ID](#3-mendapatkan-buku-berdasarkan-id)
+      + [4. Menghapus Buku Berdasarkan ID](#4-menghapus-buku-berdasarkan-id)
+      + [5. UpdateBookById](#5-updatebookbyid)
+      + [6. Register](#6-register)
+      + [7. Login](#7-login)
+      + [8. Membuat Profil User](#8-membuat-profil-user)
+      + [9. Mendapatkan Detail Profil User](#9-mendapatkan-detail-profil-user)
+      + [10. Mengedit Detail Profil User](#10-mengedit-detail-profil-user)
+      + [11. Mengedit Detail Profil User](#11-mengedit-detail-profil-user)
+      + [Middleware Authentication](#middleware-authentication)
+   * [Setup Prisma](#setup-prisma)
+   * [Menjalankan Server](#menjalankan-server)
+
+<!-- TOC end -->
+
+<!-- TOC --><a name="library-app"></a>
 # Library APP
 
 Pertemuan ke-5 atau pertemuan ke 6 secara jumlah pertemuan..., bingung? yap kan kemarin pertemuan 4.5, saking banyaknya materi pertemuan 4 dan 5 jadi perlu di pecah lagi hehe, biasa kadang tidak sesuai kurikulum yang udah aku buat.
 
 Di `meet-5` kita akan membahas dua relasi antar table di database sql yaitu one to one, dan many to many. Dimana kita akan lebih mengedepankan ke penerapan pemakaian relasi tersebut.
 
+<!-- TOC --><a name="materi"></a>
 ## Materi
 
+<!-- TOC --><a name="struktur-data"></a>
 ### **Struktur Data**
 
 - Memahami bentuk data json dari hasil query ORMdi database.
 
+<!-- TOC --><a name="one-to-one-user-table-to-profile-table-"></a>
 ### **One to One ( user table to profile table )**
 
 - Menambahkan relasi One to One dari table user dengan table profil
 - Menambahkan fitur Create, Read, dan Update user profile
 - Memahami dasar pembuatan relasi one to one antar tabel
 
+<!-- TOC --><a name="many-to-many-user-table-like-table-book-table"></a>
 ### **Many to Many (user table, like table, book table)**
 
 - Menambahkan relasi Many to Many dari table user dengan table buku menggunakan table bantu yaitu like table
 - Menambahkan fitur like dan dislike
 - Memahami dasar pembuatan relasi Many to Many antar tabel
 
+<!-- TOC --><a name="endpoint-api"></a>
 ## Endpoint API
 
 API ini menyediakan beberapa endpoint berikut:
@@ -37,12 +70,15 @@ API ini menyediakan beberapa endpoint berikut:
 - `GET /profile`: Mendapatkan detail profile atau data diri user yang telah login ke dalam app.
 - `PUT /profile`: Mengedit detail profile atau data diri user yang telah login ke dalam app.
 
+<!-- TOC --><a name="penjelasan-kode"></a>
 ## Penjelasan Kode
 
 Kode ini menggunakan Node.js dan Express.js untuk menyediakan API, dan Prisma sebagai ORM untuk interaksi dengan database. Setiap endpoint memanfaatkan async/await untuk penanganan proses asinkronus.
 
+<!-- TOC --><a name="readmemd-untuk-api-manajemen-buku"></a>
 # README.md untuk API Manajemen Buku
 
+<!-- TOC --><a name="1-mendapatkan-semua-buku-getallbooks"></a>
 ### 1. Mendapatkan Semua Buku `getAllBooks`
 
 **Endpoint**: `GET /books`
@@ -73,6 +109,7 @@ async function getAllBooks(req, res) {
 - **Deskripsi**: Endpoint ini digunakan untuk mengambil semua data buku yang tersimpan dalam database.
 - **Return**: Mengembalikan array yang berisi objek buku jika berhasil. Jika terjadi kesalahan server, akan mengembalikan pesan "Internal Server Error" dengan status kode 500.
 
+<!-- TOC --><a name="2-menambahkan-buku-baru"></a>
 ### 2. Menambahkan Buku Baru
 
 **Endpoint**: `POST /books/menambah`
@@ -136,6 +173,7 @@ async function createBook(req, res) {
   - `uploader`: Deskripsi dari buku tersebut.
 - **Return**: Mengembalikan objek buku yang baru dibuat dengan status kode 201 jika berhasil. Jika gagal, akan mengembalikan pesan "Gagal menambahkan buku" dengan status kode 500.
 
+<!-- TOC --><a name="3-mendapatkan-buku-berdasarkan-id"></a>
 ### 3. Mendapatkan Buku Berdasarkan ID
 
 **Endpoint**: `GET /book/:id`
@@ -200,6 +238,7 @@ async function getOneBookById(req, res) {
   - Jika buku tidak ditemukan, fungsi akan mengembalikan response dengan status 404 dan pesan error "Buku tidak ditemukan".
   - Jika terjadi error saat mencoba melakukan operasi ini, fungsi akan mengembalikan response dengan status 500 dan pesan error "Terjadi kesalahan server".
 
+<!-- TOC --><a name="4-menghapus-buku-berdasarkan-id"></a>
 ### 4. Menghapus Buku Berdasarkan ID
 
 **Endpoint**: `DELETE /book/:id`
@@ -247,6 +286,7 @@ async function deleteBookById(req, res) {
   - `id`: ID dari buku yang ingin dihapus.
 - **Return**: Mengembalikan pesan "Buku berhasil dihapus" jika proses penghapusan berhasil. Jika buku tidak ditemukan, akan mengembalikan pesan "Buku tidak ditemukan" dengan status kode 404. Jika terjadi kesalahan server, akan mengembalikan pesan "Terjadi kesalahan server" dengan status kode 500.
 
+<!-- TOC --><a name="5-updatebookbyid"></a>
 ### 5. UpdateBookById
 
 **Endpoint**: `PUT /book/:id/edit`
@@ -322,6 +362,7 @@ async function updateBookById(req, res) {
   - Jika pengguna tidak memiliki akses untuk mengupdate buku, akan mengembalikan pesan "Anda tidak memiliki akses untuk mengupdate buku ini" dengan status kode 403.
   - Jika terjadi kesalahan saat mencoba mengupdate buku, akan mengembalikan pesan "Terjadi kesalahan saat mengupdate buku" dengan status kode 500.
 
+<!-- TOC --><a name="6-register"></a>
 ### 6. Register
 
 **Endpoint**: `POST /register`
@@ -365,6 +406,7 @@ async function register(req, res) {
 - **Deskripsi**: Endpoint ini digunakan untuk untuk mendaftarkan pengguna baru.
 - **Return**: Mengembalikan pesan "User berhasil dibuat" jika proses penghapusan berhasil dengan status kode 201. Jika user tidak membawa property req.body yang tepat maka akan mengembalikan "'nama property body' diperlukan" dengan status kode 400. Jika terjadi kesalahan server, akan mengembalikan pesan "Internal Server Error" dengan status kode 500.
 
+<!-- TOC --><a name="7-login"></a>
 ### 7. Login
 
 **Endpoint**: `POST /login`
@@ -418,6 +460,7 @@ async function login(req, res) {
 - **Deskripsi**: Endpoint ini digunakan oleh pengguna untuk login dengan email dan password.
 - **Return**: Mengembalikan Data accessToken jika proses login berhasil dengan status kode 200. Jika user tidak membawa property req.body yang tepat maka akan mengembalikan "'nama property body' diperlukan" dengan status kode 400.HTTP status 404 jika pengguna tidak ditemukan. Jika terjadi kesalahan server, akan mengembalikan pesan "Internal Server Error" dengan status kode 500.
 
+<!-- TOC --><a name="8-membuat-profil-user"></a>
 ### 8. Membuat Profil User
 
 **Endpoint**: `POST /profile`
@@ -466,6 +509,7 @@ async function createUserProfile(req, res) {
 - **Deskripsi**: Endpoint ini digunakan untuk membuat profil user ke dalam database.
 - **Return**: Mengembalikan objek profile yang baru dibuat dengan status kode 201 jika berhasil. Jika gagal, akan mengembalikan pesan "Gagal menambahkan profile" dengan status kode 500.
 
+<!-- TOC --><a name="9-mendapatkan-detail-profil-user"></a>
 ### 9. Mendapatkan Detail Profil User
 
 **Endpoint**: `GET /profile`
@@ -502,6 +546,7 @@ async function getUserProfile(req, res) {
 - **Deskripsi**: Endpoint ini digunakan untuk mengambil profil user berdasarkan userId user yang login.
 - **Return**: Mengembalikan objek profil user yang sesuai dengan userId user yang login. Jika profil user tidak ditemukan, akan mengembalikan pesan "Gagal mendapatkan profile" dengan status kode 404. Jika terjadi kesalahan server, akan mengembalikan pesan "Terjadi kesalahan server" dengan status kode 500.
 
+<!-- TOC --><a name="10-mengedit-detail-profil-user"></a>
 ### 10. Mengedit Detail Profil User
 
 **Endpoint**: `PUT /profile`
@@ -545,6 +590,7 @@ async function updateUserProfile(req, res) {
 - **Deskripsi**: Endpoint ini digunakan untuk mengedit profil user berdasarkan userId user yang login.
 - **Return**: Mengembalikan objek profil user yang telah di update dengan userId user yang login. Jika terjadi kesalahan server, akan mengembalikan pesan "Terjadi kesalahan server" dengan status kode 500.
 
+<!-- TOC --><a name="11-mengedit-detail-profil-user"></a>
 ### 11. Mengedit Detail Profil User
 
 **Endpoint**: `POST /like/:bookId`
@@ -625,6 +671,7 @@ async function likeOrDislike(req, res) {
   - Jika like belum ada dan berhasil dibuat, fungsi akan mengembalikan response dengan status 200 dan pesan "Buku telah di-like".
   - Jika terjadi error saat mencoba melakukan operasi ini, fungsi akan mengembalikan response dengan status 500 dan pesan error "Terjadi kesalahan pada server".
 
+<!-- TOC --><a name="middleware-authentication"></a>
 ### Middleware Authentication
 
 Middleware ini digunakan untuk memverifikasi token JWT yang dikirimkan melalui header `token`. Jika token tidak ada atau tidak valid, request akan ditolak, bagian authentication middleware ini bisa di lihat dalam file routes.js.
@@ -649,6 +696,7 @@ route.use((req, res, next) => {
 });
 ```
 
+<!-- TOC --><a name="setup-prisma"></a>
 ## Setup Prisma
 
 Untuk mengatur Prisma ORM, ikuti langkah-langkah berikut:
@@ -685,6 +733,7 @@ npx prisma generate
 
 Perintah ini akan menerapkan skema database yang didefinisikan dalam file `prisma/schema.prisma` ke database Kamu.
 
+<!-- TOC --><a name="menjalankan-server"></a>
 ## Menjalankan Server
 
 Untuk menjalankan server, pastikan Kamu telah menginstal semua dependensi dengan `npm install`, lalu gunakan perintah:
