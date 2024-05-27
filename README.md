@@ -45,3 +45,9 @@ Branch: `meet-4.5`
 - **Add relation between user with Book (one to many)** : Memahami konsep data relation dalam database sql dan implementasi one to many untuk table user dengan book diamana satu user dapat memiliki banyak buku.
 - **Auth with http req header with bearer token JWT (middleware)** : Membangun fitur authentication dengan token login user dengan JWT dan mengimplementasikan mekanisme authentication dengan middleware
 - **New App Flow** : Memahami flow dari app yang kita buat, bagaimana alur dari route, hingga sampai di function yang di eksekusi
+
+### Meet 5: Struktur Data, One to One, Many to Many
+Branch: `meet-5`
+- **Struktur Data** : Memahami bentuk data json dari hasil query ORMdi database.
+- **One to One ( user table to profile table )** : Menambahkan relasi One to One dari table user dengan table profil, menambahkan fitur Create, Read, dan Update user profile, dan terakhir dasar pembuatan relasi one to one antar tabel
+- **Many to Many (user table, like table, book table)** : Menambahkan relasi Many to Many dari table user dengan table buku menggunakan table bantu yaitu like table, menambahkan fitur like dan dislike, dan memahami dasar pembuatan relasi Many to Many antar tabel
