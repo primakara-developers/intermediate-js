@@ -15,6 +15,7 @@ const {
 const route = express.Router();
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
+const parser = require("./multerConfig");
 
 route.post("/register", register);
 route.post("/login", login);
@@ -36,7 +37,7 @@ route.use((req, res, next) => {
 });
 
 route.get("/books", getAllBooks);
-route.post("/books/menambah", createBook);
+route.post("/books/menambah", parser.single("image"), createBook);
 route.put("/book/:id/edit", updateBookById);
 route.get("/book/:id", getOneBookById);
 route.delete("/book/:id", deleteBookById);

@@ -1,60 +1,50 @@
 <!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
 - [Library APP](#library-app)
-   * [Materi](#materi)
-      + [**Struktur Data**](#struktur-data)
-      + [**One to One ( user table to profile table )**](#one-to-one-user-table-to-profile-table-)
-      + [**Many to Many (user table, like table, book table)**](#many-to-many-user-table-like-table-book-table)
-   * [Endpoint API](#endpoint-api)
-   * [Penjelasan Kode](#penjelasan-kode)
-- [README.md untuk API Manajemen Buku](#readmemd-untuk-api-manajemen-buku)
-      + [1. Mendapatkan Semua Buku `getAllBooks`](#1-mendapatkan-semua-buku-getallbooks)
-      + [2. Menambahkan Buku Baru](#2-menambahkan-buku-baru)
-      + [3. Mendapatkan Buku Berdasarkan ID](#3-mendapatkan-buku-berdasarkan-id)
-      + [4. Menghapus Buku Berdasarkan ID](#4-menghapus-buku-berdasarkan-id)
-      + [5. UpdateBookById](#5-updatebookbyid)
-      + [6. Register](#6-register)
-      + [7. Login](#7-login)
-      + [8. Membuat Profil User](#8-membuat-profil-user)
-      + [9. Mendapatkan Detail Profil User](#9-mendapatkan-detail-profil-user)
-      + [10. Mengedit Detail Profil User](#10-mengedit-detail-profil-user)
-      + [11. Mengedit Detail Profil User](#11-mengedit-detail-profil-user)
-      + [Middleware Authentication](#middleware-authentication)
-   * [Setup Prisma](#setup-prisma)
-   * [Menjalankan Server](#menjalankan-server)
+  - [Materi](#materi)
+    - [Git reposit](#git-reposit)
+    - [Deploy Vercel](#deploy-vercel)
+    - [Image Upload](#image-upload)
+  - [Endpoint API](#endpoint-api)
+  - [Penjelasan Kode](#penjelasan-kode)
+- [README.md untuk API Manajemen Buku](#readmemd-untuk-api-manajemen-buku) + [1. Mendapatkan Semua Buku `getAllBooks`](#1-mendapatkan-semua-buku-getallbooks) + [2. Menambahkan Buku Baru](#2-menambahkan-buku-baru) + [3. Mendapatkan Buku Berdasarkan ID](#3-mendapatkan-buku-berdasarkan-id) + [4. Menghapus Buku Berdasarkan ID](#4-menghapus-buku-berdasarkan-id) + [5. UpdateBookById](#5-updatebookbyid) + [6. Register](#6-register) + [7. Login](#7-login) + [8. Membuat Profil User](#8-membuat-profil-user) + [9. Mendapatkan Detail Profil User](#9-mendapatkan-detail-profil-user) + [10. Mengedit Detail Profil User](#10-mengedit-detail-profil-user) + [11. Mengedit Detail Profil User](#11-mengedit-detail-profil-user) + [Middleware Authentication](#middleware-authentication) + [Middleware Cloudinary](#middleware-cloudinary) - [Cloudinary Configuration](#cloudinary-configuration) - [Setup](#setup) - [Kode](#kode) - [Multer and Cloudinary Configuration](#multer-and-cloudinary-configuration) - [Setup](#setup-1) - [Kode](#kode-1) - [Usage](#usage)
+  - [Setup Prisma](#setup-prisma)
+  - [Menjalankan Server](#menjalankan-server)
 
 <!-- TOC end -->
 
 <!-- TOC --><a name="library-app"></a>
+
 # Library APP
 
-Pertemuan ke-5 atau pertemuan ke 6 secara jumlah pertemuan..., bingung? yap kan kemarin pertemuan 4.5, saking banyaknya materi pertemuan 4 dan 5 jadi perlu di pecah lagi hehe, biasa kadang tidak sesuai kurikulum yang udah aku buat.
-
-Di `meet-5` kita akan membahas dua relasi antar table di database sql yaitu one to one, dan many to many. Dimana kita akan lebih mengedepankan ke penerapan pemakaian relasi tersebut.
+Di `meet-6` kita akan membahas mengenai deploy ke vercel dan beberapa git fitur yang bisa dipakai, namun semua hal itu tidak akan aku masukin ke readme nanti teman teman bisa baca lewat notenya saja
 
 <!-- TOC --><a name="materi"></a>
+
 ## Materi
 
-<!-- TOC --><a name="struktur-data"></a>
-### **Struktur Data**
+<!-- TOC --><a name="git-reposit"></a>
 
-- Memahami bentuk data json dari hasil query ORMdi database.
+### Git reposit
 
-<!-- TOC --><a name="one-to-one-user-table-to-profile-table-"></a>
-### **One to One ( user table to profile table )**
+    - readme
+    - env.example and why
 
-- Menambahkan relasi One to One dari table user dengan table profil
-- Menambahkan fitur Create, Read, dan Update user profile
-- Memahami dasar pembuatan relasi one to one antar tabel
+<!-- TOC --><a name="deploy-vercel"></a>
 
-<!-- TOC --><a name="many-to-many-user-table-like-table-book-table"></a>
-### **Many to Many (user table, like table, book table)**
+### Deploy Vercel
 
-- Menambahkan relasi Many to Many dari table user dengan table buku menggunakan table bantu yaitu like table
-- Menambahkan fitur like dan dislike
-- Memahami dasar pembuatan relasi Many to Many antar tabel
+<!-- TOC --><a name="image-upload"></a>
+
+### Image Upload
+
+    - intro File upload
+    - intro multer
+    - intro cloudinary
+    - update Create book & Update book
 
 <!-- TOC --><a name="endpoint-api"></a>
+
 ## Endpoint API
 
 API ini menyediakan beberapa endpoint berikut:
@@ -71,14 +61,17 @@ API ini menyediakan beberapa endpoint berikut:
 - `PUT /profile`: Mengedit detail profile atau data diri user yang telah login ke dalam app.
 
 <!-- TOC --><a name="penjelasan-kode"></a>
+
 ## Penjelasan Kode
 
 Kode ini menggunakan Node.js dan Express.js untuk menyediakan API, dan Prisma sebagai ORM untuk interaksi dengan database. Setiap endpoint memanfaatkan async/await untuk penanganan proses asinkronus.
 
 <!-- TOC --><a name="readmemd-untuk-api-manajemen-buku"></a>
+
 # README.md untuk API Manajemen Buku
 
 <!-- TOC --><a name="1-mendapatkan-semua-buku-getallbooks"></a>
+
 ### 1. Mendapatkan Semua Buku `getAllBooks`
 
 **Endpoint**: `GET /books`
@@ -110,6 +103,7 @@ async function getAllBooks(req, res) {
 - **Return**: Mengembalikan array yang berisi objek buku jika berhasil. Jika terjadi kesalahan server, akan mengembalikan pesan "Internal Server Error" dengan status kode 500.
 
 <!-- TOC --><a name="2-menambahkan-buku-baru"></a>
+
 ### 2. Menambahkan Buku Baru
 
 **Endpoint**: `POST /books/menambah`
@@ -149,6 +143,7 @@ async function createBook(req, res) {
         deskripsi,
         uploader,
         userId,
+        imageUrl: req.file.path,
       },
     });
 
@@ -171,9 +166,11 @@ async function createBook(req, res) {
   - `author`: Penulis dari buku tersebut.
   - `deskripsi`: Deskripsi dari buku tersebut.
   - `uploader`: Deskripsi dari buku tersebut.
+  - `imageUrl`: Link image dari cloudinary,
 - **Return**: Mengembalikan objek buku yang baru dibuat dengan status kode 201 jika berhasil. Jika gagal, akan mengembalikan pesan "Gagal menambahkan buku" dengan status kode 500.
 
 <!-- TOC --><a name="3-mendapatkan-buku-berdasarkan-id"></a>
+
 ### 3. Mendapatkan Buku Berdasarkan ID
 
 **Endpoint**: `GET /book/:id`
@@ -239,6 +236,7 @@ async function getOneBookById(req, res) {
   - Jika terjadi error saat mencoba melakukan operasi ini, fungsi akan mengembalikan response dengan status 500 dan pesan error "Terjadi kesalahan server".
 
 <!-- TOC --><a name="4-menghapus-buku-berdasarkan-id"></a>
+
 ### 4. Menghapus Buku Berdasarkan ID
 
 **Endpoint**: `DELETE /book/:id`
@@ -287,6 +285,7 @@ async function deleteBookById(req, res) {
 - **Return**: Mengembalikan pesan "Buku berhasil dihapus" jika proses penghapusan berhasil. Jika buku tidak ditemukan, akan mengembalikan pesan "Buku tidak ditemukan" dengan status kode 404. Jika terjadi kesalahan server, akan mengembalikan pesan "Terjadi kesalahan server" dengan status kode 500.
 
 <!-- TOC --><a name="5-updatebookbyid"></a>
+
 ### 5. UpdateBookById
 
 **Endpoint**: `PUT /book/:id/edit`
@@ -363,6 +362,7 @@ async function updateBookById(req, res) {
   - Jika terjadi kesalahan saat mencoba mengupdate buku, akan mengembalikan pesan "Terjadi kesalahan saat mengupdate buku" dengan status kode 500.
 
 <!-- TOC --><a name="6-register"></a>
+
 ### 6. Register
 
 **Endpoint**: `POST /register`
@@ -407,6 +407,7 @@ async function register(req, res) {
 - **Return**: Mengembalikan pesan "User berhasil dibuat" jika proses penghapusan berhasil dengan status kode 201. Jika user tidak membawa property req.body yang tepat maka akan mengembalikan "'nama property body' diperlukan" dengan status kode 400. Jika terjadi kesalahan server, akan mengembalikan pesan "Internal Server Error" dengan status kode 500.
 
 <!-- TOC --><a name="7-login"></a>
+
 ### 7. Login
 
 **Endpoint**: `POST /login`
@@ -461,6 +462,7 @@ async function login(req, res) {
 - **Return**: Mengembalikan Data accessToken jika proses login berhasil dengan status kode 200. Jika user tidak membawa property req.body yang tepat maka akan mengembalikan "'nama property body' diperlukan" dengan status kode 400.HTTP status 404 jika pengguna tidak ditemukan. Jika terjadi kesalahan server, akan mengembalikan pesan "Internal Server Error" dengan status kode 500.
 
 <!-- TOC --><a name="8-membuat-profil-user"></a>
+
 ### 8. Membuat Profil User
 
 **Endpoint**: `POST /profile`
@@ -510,6 +512,7 @@ async function createUserProfile(req, res) {
 - **Return**: Mengembalikan objek profile yang baru dibuat dengan status kode 201 jika berhasil. Jika gagal, akan mengembalikan pesan "Gagal menambahkan profile" dengan status kode 500.
 
 <!-- TOC --><a name="9-mendapatkan-detail-profil-user"></a>
+
 ### 9. Mendapatkan Detail Profil User
 
 **Endpoint**: `GET /profile`
@@ -547,6 +550,7 @@ async function getUserProfile(req, res) {
 - **Return**: Mengembalikan objek profil user yang sesuai dengan userId user yang login. Jika profil user tidak ditemukan, akan mengembalikan pesan "Gagal mendapatkan profile" dengan status kode 404. Jika terjadi kesalahan server, akan mengembalikan pesan "Terjadi kesalahan server" dengan status kode 500.
 
 <!-- TOC --><a name="10-mengedit-detail-profil-user"></a>
+
 ### 10. Mengedit Detail Profil User
 
 **Endpoint**: `PUT /profile`
@@ -591,6 +595,7 @@ async function updateUserProfile(req, res) {
 - **Return**: Mengembalikan objek profil user yang telah di update dengan userId user yang login. Jika terjadi kesalahan server, akan mengembalikan pesan "Terjadi kesalahan server" dengan status kode 500.
 
 <!-- TOC --><a name="11-mengedit-detail-profil-user"></a>
+
 ### 11. Mengedit Detail Profil User
 
 **Endpoint**: `POST /like/:bookId`
@@ -672,6 +677,7 @@ async function likeOrDislike(req, res) {
   - Jika terjadi error saat mencoba melakukan operasi ini, fungsi akan mengembalikan response dengan status 500 dan pesan error "Terjadi kesalahan pada server".
 
 <!-- TOC --><a name="middleware-authentication"></a>
+
 ### Middleware Authentication
 
 Middleware ini digunakan untuk memverifikasi token JWT yang dikirimkan melalui header `token`. Jika token tidak ada atau tidak valid, request akan ditolak, bagian authentication middleware ini bisa di lihat dalam file routes.js.
@@ -696,7 +702,97 @@ route.use((req, res, next) => {
 });
 ```
 
+<!-- TOC --><a name="middleware-cloudinary"></a>
+
+### Middleware Cloudinary
+
+<!-- TOC --><a name="cloudinary-configuration"></a>
+
+#### Cloudinary Configuration
+
+File `cloudinaryConfig.js` berisi konfigurasi untuk layanan Cloudinary, yang digunakan untuk mengunggah dan mengelola file media seperti gambar.
+
+<!-- TOC --><a name="setup"></a>
+
+#### Setup
+
+1. Install package `cloudinary` dengan menjalankan `npm install cloudinary` atau `yarn add cloudinary`.
+2. Buat file `.env` di root proyek dan tambahkan variabel berikut:
+   - `CLOUDINARY_CLOUD_NAME`: Nama cloud Anda di Cloudinary.
+   - `CLOUDINARY_API_KEY`: API key Anda di Cloudinary.
+   - `CLOUDINARY_API_SECRET`: API secret Anda di Cloudinary.
+
+<!-- TOC --><a name="kode"></a>
+
+#### Kode
+
+```javascript
+// cloudinaryConfig.js
+const cloudinary = require("cloudinary").v2;
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+module.exports = cloudinary;
+```
+
+<!-- TOC --><a name="multer-and-cloudinary-configuration"></a>
+
+#### Multer and Cloudinary Configuration
+
+File `multerConfig.js` berisi konfigurasi untuk layanan Multer dan Cloudinary, yang digunakan untuk mengunggah dan mengelola file media seperti gambar.
+
+<!-- TOC --><a name="setup-1"></a>
+
+#### Setup
+
+1. Install package `multer` dan `multer-storage-cloudinary` dengan menjalankan `npm install multer multer-storage-cloudinary` atau `yarn add multer multer-storage-cloudinary`.
+2. Pastikan Anda telah mengatur konfigurasi Cloudinary di file `cloudinaryConfig.js`.
+
+<!-- TOC --><a name="kode-1"></a>
+
+#### Kode
+
+```javascript
+// multerConfig.js
+const multer = require("multer");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("./cloudinaryConfig");
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "books", // Nama folder di Cloudinary
+    allowed_formats: ["jpg", "png"],
+  },
+});
+
+const parser = multer({ storage: storage });
+
+module.exports = parser;
+```
+
+Dalam kode ini, kita mengimpor modul `multer`, `multer-storage-cloudinary`, dan konfigurasi `cloudinary` yang telah kita set sebelumnya.
+
+Kemudian, kita membuat instance baru dari `CloudinaryStorage` dan mengkonfigurasinya dengan objek `cloudinary` dan parameter tambahan. Parameter ini mencakup `folder`, yang merupakan nama folder di mana file akan disimpan di `Cloudinary`, dan `allowed_formats`, yang merupakan array format file yang diperbolehkan.
+
+Setelah itu, kita membuat `parser` dengan menggunakan `multer` dan konfigurasi `storage` yang telah kita buat. `parser` ini kemudian diekspor sehingga dapat digunakan di bagian lain dari aplikasi kita untuk mengunggah file.
+
+<!-- TOC --><a name="usage"></a>
+
+#### Usage
+
+Teman teman bisa memakai middlware file upload clounarynya sebagai middleware dan jangan lupa di import juga
+
+```js
+route.post("/books/menambah", parser.single("image"), createBook);
+```
+
 <!-- TOC --><a name="setup-prisma"></a>
+
 ## Setup Prisma
 
 Untuk mengatur Prisma ORM, ikuti langkah-langkah berikut:
@@ -734,6 +830,7 @@ npx prisma generate
 Perintah ini akan menerapkan skema database yang didefinisikan dalam file `prisma/schema.prisma` ke database Kamu.
 
 <!-- TOC --><a name="menjalankan-server"></a>
+
 ## Menjalankan Server
 
 Untuk menjalankan server, pastikan Kamu telah menginstal semua dependensi dengan `npm install`, lalu gunakan perintah:

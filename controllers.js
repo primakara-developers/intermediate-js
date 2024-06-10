@@ -104,6 +104,7 @@ async function createBook(req, res) {
         deskripsi,
         uploader,
         userId,
+        imageUrl: req.file.path, // Path gambar dari Cloudinary
       },
     });
 

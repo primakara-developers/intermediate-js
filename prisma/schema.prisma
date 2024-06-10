@@ -24,6 +24,7 @@ model Book {
   userId    Int     
   user      User    @relation(fields: [userId], references: [id]) 
   likes     Like[]
+  imageUrl  String?
 }
 
 model User {
